@@ -7,7 +7,7 @@ class M_score extends CI_Model{
 	}
 
 	function get_all_data_score(){
-		$query = "SELECT * FROM tbl_score ORDER BY tbl_score.seksi ASC";
+		$query = "SELECT * FROM tbl_score WHERE nama='astinet_isp' ORDER BY tbl_score.tanggal ASC";
         return $this->db->query($query)->result_array();
 	}
 	

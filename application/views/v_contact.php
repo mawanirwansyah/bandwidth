@@ -21,7 +21,7 @@
             <div class="info-box  mb-4">
               <i class="bx bx-envelope"></i>
               <h3>Email Us</h3>
-              <p>ssm@inalum.id</p>
+              <p>sit@inalum.id</p>
             </div>
           </div>
 

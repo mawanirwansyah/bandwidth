@@ -33,8 +33,6 @@
 	    <!-- Template Main CSS File -->
 	    <link href="<?php  echo assets_url().'theme/css/style.css'?>" rel="stylesheet">
 
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-	        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 	    <!-- fullcalendar css  -->
 	    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.css' rel='stylesheet' />
 	    <script src="<?php  echo assets_url().'theme/js/jquery.min.js'?>"></script>
@@ -88,30 +86,16 @@
 	            <nav id="navbar" class="navbar">
 	                <ul>
 	                    <li><a href="<?php echo base_url('home') ?>">Home</a></li>
-	                    <li class="dropdown"><a href="#"><span>Profile Tim Shopfloor</span><i
-	                                class="bi bi-chevron-down"></i></a>
+	                    <li class="dropdown"><a href="#"><span>Grafik Bandwidth</span><i class="bi bi-chevron-down"></i></a>
 	                        <ul>
-	                            <li class="dropdown"><a href="<?php echo base_url('struktur') ?>"><span>Organisasi
-	                                        Chart</span> <i class="bi bi-chevron-right"></i></a>
-	                                <ul>
-	                                    <li><a href="<?php echo base_url('jobdesk') ?>">Jobdesk</a></li>
-	                                </ul>
-	                            </li>
-	                            <li><a href="<?php echo base_url('informasi5r') ?>">Informasi 5R</a></li>
-	                            <li><a href="<?php echo base_url('informasi3p') ?>">Informasi 3 Pilar</a></li>
-	                            <li><a href="<?php echo base_url('profileassessor') ?>">Profile Assessor</a></li>
-	                        </ul>
-	                    </li>
-	                    <li class="dropdown"><a href="#"><span>Monitoring Shopfloor</span><i
-	                                class="bi bi-chevron-down"></i></a>
-	                        <ul>
-	                            <li><a href="<?php echo base_url('blog') ?>">Bulanan</a></li>
-	                        </ul>
-	                    </li>
-	                    <li class="dropdown"><a href="#"><span>Assestment</span><i class="bi bi-chevron-down"></i></a>
-	                        <ul>
-	                            <li><a href="<?php echo base_url('jadwal') ?>">Jadwal</a></li>
-	                            <li><a href="<?php echo base_url('score') ?>">Score</a></li>
+	                            <li><a href="<?php echo base_url('score') ?>">Bandwidth Astinet ISP</a></li>
+								<li><a href="<?php echo base_url('score') ?>">Bandwidth Indosat ISP</a></li>
+								<li><a href="<?php echo base_url('score') ?>">Bandwidth Astinet IJO</a></li>
+	                            <li><a href="<?php echo base_url('score') ?>">Bandwidth Astinet IPP</a></li>								
+								<li><a href="<?php echo base_url('score') ?>">Bandwidth Astinet IMO</a></li>								
+								<li><a href="<?php echo base_url('score') ?>">Bandwidth Indihome IMO</a></li>
+								<li><a href="<?php echo base_url('score') ?>">Bandwidth Astinet TG</a></li>
+								<li><a href="<?php echo base_url('score') ?>">Mikrotik</a></li>
 	                        </ul>
 	                    </li>
 	                    <li><a href="<?php echo base_url('contact') ?>">Contact</a></li>

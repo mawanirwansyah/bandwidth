@@ -34,12 +34,6 @@
                     <h4>Useful Links</h4>
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?php echo base_url('') ?>">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="<?php echo base_url('struktur') ?>">Organisasi
-                                Chart</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a
-                                href="<?php echo base_url('informasi5r') ?>">Informasi 5R</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a
-                                href="<?php echo base_url('informasi3p') ?>">Informasi 3 Pilar</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="<?php echo base_url('contact') ?>">Contact</a>
                         </li>
                     </ul>

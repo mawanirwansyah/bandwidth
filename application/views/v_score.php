@@ -3,7 +3,7 @@
     <div class="container" data-aos="fade-up">
         <div class="row" data-aos="fade-up" data-aos-delay="100">
             <div class="section-title">
-                <h2>Score Assessment</h2>
+                <h2>Bandwidth Astinet ISP</h2>
             </div>
 
             <script>
@@ -23,6 +23,7 @@
                 <script>
                     var labels = [];
                     var values = [];
+                    var tanggal = [];
 
                     $(document).ready(function() {
                         $.ajax({
@@ -32,8 +33,9 @@
                                 var data = JSON.parse(response);
                                 console.log(data);
                                 for (var i = 0; i < data.length; i++) {
-                                    labels.push(data[i].seksi);
-                                    values.push(data[i].score);
+                                    labels.push(data[i].download);
+                                    values.push(data[i].upload);
+                                    tanggal.push(data[i].tanggal);
                                 }
                             },
                         }).done(function() {
@@ -63,7 +65,7 @@
                                         show: false
                                     }
                                     },
-                                    colors: ['#77B6EA', '#545454'],
+                                    colors: ['#4169E1', '#FF0000'],
                                     dataLabels: {
                                     enabled: true,
                                     },
@@ -85,7 +87,7 @@
                                     size: 1
                                     },
                                     xaxis: {
-                                    categories: ['10-12-2021', '11-12-2021', '12-12-2021', '13-12-2021', '14-12-2021', '15-12-2021', '16-12-2021'],
+                                    categories: tanggal,
                                     title: {
                                         text: 'Daily (Harian)'
                                     }
@@ -95,14 +97,14 @@
                                         text: 'Bandwidth'
                                     },
                                     min: 0,
-                                    max: 50
+                                    max: 60
                                     },
                                     legend: {
                                     position: 'top',
                                     horizontalAlign: 'right',
                                     floating: true,
                                     offsetY: -25,
-                                    offsetX: -20
+                                    offsetX: -5
                                     }
                                     };
 
