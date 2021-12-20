@@ -6,8 +6,13 @@ class M_score extends CI_Model{
 		return $hsl;
 	}
 
+	// function get_all_data_score(){
+	// 	$query = "SELECT * FROM tbl_score WHERE nama='astinet_isp' ORDER BY tbl_score.tanggal ASC";
+    //     return $this->db->query($query)->result_array();
+	// }
+
 	function get_all_data_score(){
-		$query = "SELECT * FROM tbl_score WHERE nama='astinet_isp' ORDER BY tbl_score.tanggal ASC";
+		$query = "SELECT  SUM(download)/10 AS total_download, SUM(upload)/10 AS total_upload, tanggal FROM tbl_score WHERE nama='astinet_isp' GROUP BY tbl_score.tanggal ORDER BY tbl_score.tanggal ASC";
         return $this->db->query($query)->result_array();
 	}
 	

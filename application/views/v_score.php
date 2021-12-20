@@ -33,8 +33,8 @@
                                 var data = JSON.parse(response);
                                 console.log(data);
                                 for (var i = 0; i < data.length; i++) {
-                                    labels.push(data[i].download);
-                                    values.push(data[i].upload);
+                                    labels.push(data[i].total_download);
+                                    values.push(data[i].total_upload);
                                     tanggal.push(data[i].tanggal);
                                 }
                             },
@@ -97,13 +97,13 @@
                                         text: 'Bandwidth'
                                     },
                                     min: 0,
-                                    max: 60
+                                    max: Math.max.labels
                                     },
                                     legend: {
                                     position: 'top',
                                     horizontalAlign: 'right',
                                     floating: true,
-                                    offsetY: -25,
+                                    offsetY: -5,
                                     offsetX: -5
                                     }
                                     };
