@@ -2,8 +2,6 @@
 <?php
 $query = $this->db->query("SELECT * FROM tbl_inbox WHERE inbox_status='1'");
 $jum_pesan = $query->num_rows();
-$query1 = $this->db->query("SELECT * FROM tbl_komentar WHERE komentar_status='0'");
-$jum_komentar = $query1->num_rows();
 ?>
 <!DOCTYPE html>
 <html>

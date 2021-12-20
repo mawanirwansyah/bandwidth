@@ -16,7 +16,7 @@
            
           <div class="box">
             <div class="box-header">
-              <a class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Add Score</a>
+            <a href="<?php echo base_url("bandwidth/form"); ?>">Import Data</a><br><br>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -24,8 +24,10 @@
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>Seksi</th>
-                    <th>Score</th>
+                    <th>Download</th>
+                    <th>Upload</th>
+                    <th>Tanggal</th>
+                    <th>Nama</th>
                     <th style="text-align:center;">Aksi</th>
                 </tr>
                 </thead>
@@ -35,13 +37,17 @@
                 foreach ($data->result_array() as $i) :
                     $id_score=$i['id_score'];
                     $no++;
-                    $seksi=$i['seksi'];
-                    $score=$i['score'];                       
+                    $download=$i['download'];
+                    $upload=$i['upload']; 
+                    $tanggal=$i['tanggal'];
+                    $nama=$i['nama'];                      
                 ?>
                 <tr>               
                   <td><?php echo $no;?></td>
-                  <td><?php echo $seksi; ?></td>
-                  <td><?php echo $score; ?></td>                  
+                  <td><?php echo $download; ?></td>
+                  <td><?php echo $upload; ?></td> 
+                  <td><?php echo $tanggal; ?></td>
+                  <td><?php echo $nama; ?></td>                  
                   <td style="text-align:center;">
                         <a class="btn" data-toggle="modal" data-target="#ModalEdit<?php echo $id_score;?>"><span class="fa fa-pencil"></span></a>
                         <a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id_score;?>"><span class="fa fa-trash"></span></a>
@@ -109,8 +115,10 @@
 		
 		<?php foreach ($data->result_array() as $i) :
               $id_score=$i['id_score'];
-              $seksi=$i['seksi'];
-              $score=$i['score']; 
+              $download=$i['download'];
+              $upload=$i['upload']; 
+              $tanggal=$i['tanggal'];
+              $nama=$i['nama'];  
             ?>
 	<!--Modal Edit Pengguna-->
         <div class="modal fade" id="ModalEdit<?php echo $id_score;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -150,8 +158,10 @@
 	
 	<?php foreach ($data->result_array() as $i) :
               $id_score=$i['id_score'];
-              $seksi=$i['seksi'];
-              $score=$i['score']; 
+              $download=$i['download'];
+              $upload=$i['upload']; 
+              $tanggal=$i['tanggal'];
+              $nama=$i['nama'];   
             ?>
 	<!--Modal Hapus Kategori-->
         <div class="modal fade" id="ModalHapus<?php echo $id_score;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
