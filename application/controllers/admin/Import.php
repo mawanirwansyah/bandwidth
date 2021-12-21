@@ -1,75 +1,69 @@
 <?php
-    defined('BASEPATH') OR exit('No direct script access allowed');
-
-    class Import extends CI_Controller {
-
-        public function index()
-        {
-            $data['title'] = 'Import Excel';
-            $data['tbl_score'] = $this->db->get('tbl_score')->result();
-            $this->load->view('admin/index', $data);
-        }
-
-        public function create()
-        {
-            $data['title'] = "Upload File Excel";
-            $this->load->view('admin/create', $data);
-        }
-
-        public function excel()
-        {
-            if(isset($_FILES["file"]["name"])){
-                  // upload
-                $file_tmp  = $_FILES['file']['tmp_name'];
-                $file_name = $_FILES['file']['name'];
-                $file_size = $_FILES['file']['size'];
-                $file_type = $_FILES['file']['type'];
-                // move_uploaded_file($file_tmp,"uploads/".$file_name); // simpan filenya di folder uploads
-                
-                $object = PHPExcel_IOFactory::load($file_tmp);
-        
-                foreach($object->getWorksheetIterator() as $worksheet){
-        
-                    $highestRow = $worksheet->getHighestRow();
-                    $highestColumn = $worksheet->getHighestColumn();
-        
-                    for($row=4; $row<=$highestRow; $row++){
-        
-                        $download = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
-                        $upload = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
-                        $tanggal = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
-                        $nama = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
-
-                        $data= array(
-                            'download'          => $download,
-                            'upload'          => $upload,
-                            'tanggal'         =>$tanggal,
-                            'nama'          =>$nama,
-                        );
-        
-                    } 
-        
-                }
-
-                $this->db->insert_batch('tbl_score', $data);        
-                $message = array(
-                    'message'=>'<div class="alert alert-success">Import file excel berhasil disimpan di database</div>',
-                );                
-                $this->session->set_flashdata($message);
-                redirect('admin/import');
-            }
-            else
-            {
-                 $message = array(
-                    'message'=>'<div class="alert alert-danger">Import file gagal, coba lagi</div>',
-                );
-                
-                $this->session->set_flashdata($message);
-                redirect('import');
-            }
-        }
-
+defined('BASEPATH') OR exit('No direct script access allowed');
+ 
+class Import extends CI_Controller {
+ 
+    function __construct(){
+        parent::__construct();
+        $this->load->model('m_bandwidth'); // load model m_index
+        $this->load->library('Excel'); //load librari excel
+ 
     }
+ 
+    public function index()
+    {
+        $data['data'] = $this->m_bandwidth->getData(); // ambil data dari M_Index
+        $this->load->view('admin/index',$data);
+    }
+ 
+    public function importExcel(){
+        $fileName = $_FILES['file']['name'];
+          
+        $config['upload_path'] = './assets/'; //path upload
+        $config['file_name'] = $fileName;  // nama file
+        $config['allowed_types'] = 'xls|xlsx|csv'; //tipe file yang diperbolehkan
+        $config['max_size'] = 10000; // maksimal sizze
+ 
+        $this->load->library('upload'); //meload librari upload
+        $this->upload->initialize($config);
+          
+        if(! $this->upload->do_upload('file') ){
+            echo $this->upload->display_errors();exit();
+        }
+              
+        $inputFileName = './assets/'.$fileName;
+ 
+        try {
+                $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
+                $objReader = PHPExcel_IOFactory::createReader($inputFileType);
+                $objPHPExcel = $objReader->load($inputFileName);
+            } catch(Exception $e) {
+                die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+            }
+ 
+            $sheet = $objPHPExcel->getSheet(0);
+            $highestRow = $sheet->getHighestRow();
+            $highestColumn = $sheet->getHighestColumn();
+ 
+            for ($row = 2; $row <= $highestRow; $row++){                  //  Read a row of data into an array                 
+                $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+                                                NULL,
+                                                TRUE,
+                                                FALSE);   
+ 
+                 // Sesuaikan key array dengan nama kolom di database   
+                 $unix_date=($rowData[0][2]-25569)*86400;                                                      
+                 $data = array(
+                    "download"=> $rowData[0][0],
+                    "upload"=> $rowData[0][1],
+                    "tanggal"=> gmdate('Y-m-d',$unix_date), 
+                    "nama"=> $rowData[0][3]
+                );
 
-    /* End of file Import.php */
-    /* Location: ./application/controllers/Import.php */
+                $insert = $this->db->insert("tbl_score",$data);
+                      
+            }
+            
+            redirect('admin/import');
+    }
+}

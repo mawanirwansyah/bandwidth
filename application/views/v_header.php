@@ -89,13 +89,11 @@
 	                    <li class="dropdown"><a href="#"><span>Grafik Bandwidth</span><i class="bi bi-chevron-down"></i></a>
 	                        <ul>
 	                            <li><a href="<?php echo base_url('score') ?>">Bandwidth Astinet ISP</a></li>
-								<li><a href="<?php echo base_url('score') ?>">Bandwidth Indosat ISP</a></li>
-								<li><a href="<?php echo base_url('score') ?>">Bandwidth Astinet IJO</a></li>
-	                            <li><a href="<?php echo base_url('score') ?>">Bandwidth Astinet IPP</a></li>								
-								<li><a href="<?php echo base_url('score') ?>">Bandwidth Astinet IMO</a></li>								
-								<li><a href="<?php echo base_url('score') ?>">Bandwidth Indihome IMO</a></li>
-								<li><a href="<?php echo base_url('score') ?>">Bandwidth Astinet TG</a></li>
-								<li><a href="<?php echo base_url('score') ?>">Mikrotik</a></li>
+								<li><a href="<?php echo base_url('iisp') ?>">Bandwidth Indosat ISP</a></li>
+								<li><a href="<?php echo base_url('ijo') ?>">Bandwidth Astinet IJO</a></li>
+	                            <li><a href="<?php echo base_url('ipp') ?>">Bandwidth Astinet IPP</a></li>								
+								<li><a href="<?php echo base_url('imo') ?>">Bandwidth Astinet IMO</a></li>	
+								<li><a href="<?php echo base_url('tg') ?>">Bandwidth Astinet TG</a></li>
 	                        </ul>
 	                    </li>
 	                    <li><a href="<?php echo base_url('contact') ?>">Contact</a></li>

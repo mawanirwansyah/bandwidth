@@ -12,10 +12,34 @@ class M_score extends CI_Model{
 	// }
 
 	function get_all_data_score(){
-		$query = "SELECT  SUM(download)/10 AS total_download, SUM(upload)/10 AS total_upload, tanggal FROM tbl_score WHERE nama='astinet_isp' GROUP BY tbl_score.tanggal ORDER BY tbl_score.tanggal ASC";
+		$query = "SELECT  ROUND(SUM(download)/10) AS total_download, ROUND(SUM(upload)/10) AS total_upload, tanggal FROM tbl_score WHERE nama='Astinet_ISP' GROUP BY tbl_score.tanggal ORDER BY tbl_score.tanggal ASC";
+        return $this->db->query($query)->result_array();
+	}
+
+	function get_all_data_medan(){
+		$query = "SELECT  ROUND(SUM(download)/10) AS total_download, ROUND(SUM(upload)/10) AS total_upload, tanggal FROM tbl_score WHERE nama='Astinet_IMO' GROUP BY tbl_score.tanggal ORDER BY tbl_score.tanggal ASC";
+        return $this->db->query($query)->result_array();
+	}
+
+	function get_all_data_jakarta(){
+		$query = "SELECT  ROUND(SUM(download)/10) AS total_download, ROUND(SUM(upload)/10) AS total_upload, tanggal FROM tbl_score WHERE nama='Astinet_IJO' GROUP BY tbl_score.tanggal ORDER BY tbl_score.tanggal ASC";
+        return $this->db->query($query)->result_array();
+	}
+
+	function get_all_data_paritohan(){
+		$query = "SELECT  ROUND(SUM(download)/10) AS total_download, ROUND(SUM(upload)/10) AS total_upload, tanggal FROM tbl_score WHERE nama='Astinet_IPP' GROUP BY tbl_score.tanggal ORDER BY tbl_score.tanggal ASC";
         return $this->db->query($query)->result_array();
 	}
 	
+	function get_all_data_tg(){
+		$query = "SELECT  ROUND(SUM(download)/10) AS total_download, ROUND(SUM(upload)/10) AS total_upload, tanggal FROM tbl_score WHERE nama='Astinet_TG' GROUP BY tbl_score.tanggal ORDER BY tbl_score.tanggal ASC";
+        return $this->db->query($query)->result_array();
+	}
+	function get_all_data_iisp(){
+		$query = "SELECT  ROUND(SUM(download)/10) AS total_download, ROUND(SUM(upload)/10) AS total_upload, tanggal FROM tbl_score WHERE nama='Indosat_ISP' GROUP BY tbl_score.tanggal ORDER BY tbl_score.tanggal ASC";
+        return $this->db->query($query)->result_array();
+	}	
+
 	function simpan_kategori($seksi, $score){
 		$hsl=$this->db->query("INSERT INTO tbl_score(seksi, score) VALUES('$seksi', '$score')");
 		return $hsl;

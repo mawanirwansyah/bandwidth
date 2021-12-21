@@ -3,7 +3,7 @@
     <div class="container" data-aos="fade-up">
         <div class="row" data-aos="fade-up" data-aos-delay="100">
             <div class="section-title">
-                <h2>Bandwidth Astinet ISP</h2>
+                <h2>Bandwidth Astinet ISP (300 mbps)</h2>
             </div>
 
             <script>
@@ -33,7 +33,9 @@
                                 var data = JSON.parse(response);
                                 console.log(data);
                                 for (var i = 0; i < data.length; i++) {
+                                    
                                     labels.push(data[i].total_download);
+                                    console.log(data[i].total_download);
                                     values.push(data[i].total_upload);
                                     tanggal.push(data[i].tanggal);
                                 }
@@ -97,13 +99,13 @@
                                         text: 'Bandwidth'
                                     },
                                     min: 0,
-                                    max: Math.max.labels
+                                    max: Math.round.labels
                                     },
                                     legend: {
                                     position: 'top',
                                     horizontalAlign: 'right',
                                     floating: true,
-                                    offsetY: -5,
+                                    offsetY: -25,
                                     offsetX: -5
                                     }
                                     };
