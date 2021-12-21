@@ -99,7 +99,7 @@
                                         text: 'Bandwidth'
                                     },
                                     min: 0,
-                                    max: Math.round.labels
+                                    max: 300
                                     },
                                     legend: {
                                     position: 'top',
