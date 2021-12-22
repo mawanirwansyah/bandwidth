@@ -37,15 +37,6 @@ $jum_pesan = $query->num_rows();
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url() . 'assets/dist/css/skins/_all-skins.min.css' ?>">
-  <?php
-  /* Mengambil query report*/
-  foreach ($visitor as $result) {
-    $bulan[] = $result->tgl; //ambil bulan
-    $value[] = (float) $result->jumlah; //ambil nilai
-  }
-  /* end mengambil query*/
-
-  ?>
 
 </head>
 

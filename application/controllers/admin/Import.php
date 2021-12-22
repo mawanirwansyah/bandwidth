@@ -11,14 +11,12 @@ class Import extends CI_Controller {
         };
         $this->load->model('m_bandwidth'); // load model m_index
         $this->load->library('Excel'); //load librari excel
-        $this->load->model('m_pengunjung');
     }
  
     public function index()
     {
         $data['data'] = $this->m_bandwidth->getData(); // ambil data dari M_Index
-        $x['visitor'] = $this->m_pengunjung->statistik_pengujung();
-		$this->load->view('admin/v_subheader', $x);
+		$this->load->view('admin/v_subheader');
         $this->load->view('admin/index',$data);
     }
  

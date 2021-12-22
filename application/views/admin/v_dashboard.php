@@ -1,13 +1,4 @@
 <html>
-<?php
-        /* Mengambil query report*/
-        foreach($visitor as $result){
-            $bulan[] = $result->tgl; //ambil bulan
-            $value[] = (float) $result->jumlah; //ambil nilai
-        }
-        /* end mengambil query*/
-         
-    ?>
     
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
