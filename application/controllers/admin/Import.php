@@ -5,6 +5,10 @@ class Import extends CI_Controller {
  
     function __construct(){
         parent::__construct();
+        if(!isset($_SESSION['logged_in'])){
+            $url=base_url('administrator');
+            redirect($url);
+        };
         $this->load->model('m_bandwidth'); // load model m_index
         $this->load->library('Excel'); //load librari excel
         $this->load->model('m_pengunjung');

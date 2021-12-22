@@ -6,7 +6,6 @@ class Home extends CI_Controller{
             $url=base_url('administrator');
             redirect($url);
         };
-		$this->load->model('m_pengunjung');
         $this->load->model('m_home');
 		$this->load->library('upload');
 	}
@@ -16,8 +15,7 @@ class Home extends CI_Controller{
         $kode=$this->session->userdata('idadmin');
 		$x['user']=$this->m_home->get_gambar_informasi($kode);
 		$x['data']=$this->m_home->get_all_data_informasi();
-        $x['visitor'] = $this->m_pengunjung->statistik_pengujung();
-		$this->load->view('admin/v_subheader', $x);
+		$this->load->view('admin/v_subheader');
 		$this->load->view('admin/v_home', $x);
 	}
 

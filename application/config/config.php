@@ -29,7 +29,7 @@ $url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME
 
 $config['base_url']    = $url;
 
-$url_assets = 'http://localhost/inalum-ssm/information-ssm/';
+$url_assets = 'http://localhost/bandwidth/';
 
 $uriset = $url_assets == '' ? $url : $url_assets;
 
