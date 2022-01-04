@@ -29,7 +29,7 @@ $url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME
 
 $config['base_url']    = $url;
 
-$url_assets = 'http://localhost/bandwidth/';
+$url_assets = 'https://dev.inalum.id/bandwidth/';
 
 $uriset = $url_assets == '' ? $url : $url_assets;
 
