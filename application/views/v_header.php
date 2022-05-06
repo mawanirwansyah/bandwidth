@@ -36,6 +36,10 @@
 	    <!-- fullcalendar css  -->
 	    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.css' rel='stylesheet' />
 	    <script src="<?php  echo assets_url().'theme/js/jquery.min.js'?>"></script>
+		<!-- Include library Bootstrap Datepicker -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<!-- Include File jQuery -->
+		<script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 	</head>
 
 	<body>
