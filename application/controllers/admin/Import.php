@@ -84,7 +84,7 @@ class Import extends CI_Controller
                 "download" => $dl,
                 "upload" => $ul,
                 // "tanggal" => gmdate('Y-m-d', $unix_date),
-                "tanggal" => $unixDate->format('Y-m-d H:i'),
+                "tanggal" => $unixDate->format('Y-m-d'),
                 "nama" => $rowData[0][3]
             );
             $value = $unixDate->format('Ymd');
